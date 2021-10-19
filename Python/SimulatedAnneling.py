@@ -45,7 +45,7 @@ class SimulatedAnneling():
 
     def execute(self):
         self.X = self.generate_initial_solution()
-        self.Xfitness = self.function(self.X, True)
+        self.Xfitness = self.function(self.X)
         self.best = self.X.copy()
         self.F_min = self.Xfitness
 
@@ -53,7 +53,7 @@ class SimulatedAnneling():
         while t > self.Tmin:
             # Generate a new solution from the current X solution
             newX = self.next_step(self.X)
-            newX_fitness = self.function(newX, True)
+            newX_fitness = self.function(newX)
         
             delta_fitness = newX_fitness - self.Xfitness
 
